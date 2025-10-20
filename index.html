@@ -203,12 +203,12 @@
 
     for ( let ta of textAreas) {
       if ( ta.value.trim().length < 5 ){
-        allRated = false;
+        allFilled = false;
         break;
       }
     }
     
-    submitBtn.disabled = !allRated;
+     submitBtn.disabled = !(allRated && allFilled);
 
     if (!allRated) {
       msg.textContent = "⚠️ Per favore, vota tutte le categorie prima di inviare.";
