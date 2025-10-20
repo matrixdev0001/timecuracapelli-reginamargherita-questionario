@@ -220,7 +220,7 @@
   }
 
   ratingInputs.forEach(input => input.addEventListener('change', checkAllRated));
-  form.addEventListener('input', checkAllRated);
+  textAreas.forEach(ta => ta.addEventListener('input', checkAllRated));
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     msg.textContent = "⏳ Invio in corso...";
