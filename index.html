@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Feedback – Time Cura Capelli</title>
+<title>Feedback – Time Cura Capelli</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
   body {
@@ -56,15 +56,15 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    gap: 6px;
-    font-size: 2rem;
+    gap: 4px;
+    margin-top: 0.5rem;
   }
   .rating input { display: none; }
   .rating label {
+    font-size: 2rem;
     color: #ccc;
     cursor: pointer;
     transition: transform 0.2s ease, color 0.3s ease, text-shadow 0.3s;
-    text-shadow: 0 0 0px transparent;
   }
   .rating label:hover,
   .rating label:hover ~ label {
@@ -105,7 +105,7 @@
     transition: transform 0.2s ease, box-shadow 0.3s ease;
   }
   button:disabled {
-    background: #aaa;
+    opacity: 0.5;
     cursor: not-allowed;
   }
   button:hover:not(:disabled) {
@@ -116,11 +116,13 @@
     text-align: center;
     margin-top: 1rem;
     font-weight: 600;
-    color: #d9534f;
+    color: #00334e;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s;
   }
-  #msg.visible { opacity: 1; }
+  #msg.visible {
+    opacity: 1;
+  }
   footer {
     text-align: center;
     font-size: 0.85rem;
@@ -128,27 +130,124 @@
     margin-top: 2rem;
   }
   @media (max-width: 600px) {
-    .rating { font-size: 1.6rem; }
+    .rating label { font-size: 1.6rem; }
   }
 </style>
 </head>
 <body>
 
 <div class="card">
-  <img src="LOGO_URL_HERE" alt="Logo Time Cura Capelli" class="logo">
-  <h1>💇‍♀️ Grazie per la tua opinione!</h1>
-  <p class="intro">Compila il questionario in forma anonima – ci aiuti a migliorare ogni giorno nel nostro salone.</p>
+  <img src="LOGO_URL_HERE" alt="Logo Time Cura Capelli" class="logo">
+  <h1>Grazie per la tua opinione!</h1>
+  <p class="intro">Compila il questionario in forma anonima: ci aiuti a migliorare ogni giorno nel nostro salone.</p>
 
   <form id="survey">
     <label>1) Cortesia e accoglienza dello staff</label>
-    <div class="rating" data-group="accoglienza">
-      <input type="radio" id="acc5" name="accoglienza" value="5"><label for="acc5">★</label>
-      <input type="radio" id="acc4" name="accoglienza" value="4"><label for="acc4">★</label>
-      <input type="radio" id="acc3" name="accoglienza" value="3"><label for="acc3">★</label>
-      <input type="radio" id="acc2" name="accoglienza" value="2"><label for="acc2">★</label>
-      <input type="radio" id="acc1" name="accoglienza" value="1"><label for="acc1">★</label>
+    <div class="rating">
+      <input type="radio" name="accoglienza" id="acc5" value="5"><label for="acc5">★</label>
+      <input type="radio" name="accoglienza" id="acc4" value="4"><label for="acc4">★</label>
+      <input type="radio" name="accoglienza" id="acc3" value="3"><label for="acc3">★</label>
+      <input type="radio" name="accoglienza" id="acc2" value="2"><label for="acc2">★</label>
+      <input type="radio" name="accoglienza" id="acc1" value="1"><label for="acc1">★</label>
     </div>
 
     <label>2) Qualità del taglio e del servizio</label>
-    <div class="rating" data-group="qualita">
-      <input type
+    <div class="rating">
+      <input type="radio" name="qualita" id="q5" value="5"><label for="q5">★</label>
+      <input type="radio" name="qualita" id="q4" value="4"><label for="q4">★</label>
+      <input type="radio" name="qualita" id="q3" value="3"><label for="q3">★</label>
+      <input type="radio" name="qualita" id="q2" value="2"><label for="q2">★</label>
+      <input type="radio" name="qualita" id="q1" value="1"><label for="q1">★</label>
+    </div>
+
+    <label>3) Pulizia e comfort del salone</label>
+    <div class="rating">
+      <input type="radio" name="pulizia" id="p5" value="5"><label for="p5">★</label>
+      <input type="radio" name="pulizia" id="p4" value="4"><label for="p4">★</label>
+      <input type="radio" name="pulizia" id="p3" value="3"><label for="p3">★</label>
+      <input type="radio" name="pulizia" id="p2" value="2"><label for="p2">★</label>
+      <input type="radio" name="pulizia" id="p1" value="1"><label for="p1">★</label>
+    </div>
+
+    <label>4) Tempistica e puntualità dell’appuntamento</label>
+    <div class="rating">
+      <input type="radio" name="tempistica" id="t5" value="5"><label for="t5">★</label>
+      <input type="radio" name="tempistica" id="t4" value="4"><label for="t4">★</label>
+      <input type="radio" name="tempistica" id="t3" value="3"><label for="t3">★</label>
+      <input type="radio" name="tempistica" id="t2" value="2"><label for="t2">★</label>
+      <input type="radio" name="tempistica" id="t1" value="1"><label for="t1">★</label>
+    </div>
+
+    <label>5) Consiglieresti il nostro salone a un amico?</label>
+    <div class="rating">
+      <input type="radio" name="consiglio" id="c5" value="5"><label for="c5">★</label>
+      <input type="radio" name="consiglio" id="c4" value="4"><label for="c4">★</label>
+      <input type="radio" name="consiglio" id="c3" value="3"><label for="c3">★</label>
+      <input type="radio" name="consiglio" id="c2" value="2"><label for="c2">★</label>
+      <input type="radio" name="consiglio" id="c1" value="1"><label for="c1">★</label>
+    </div>
+
+    <label>6) Hai commenti o suggerimenti anonimi?</label>
+    <textarea name="commenti" placeholder="Scrivi qui il tuo feedback..."></textarea>
+
+    <button type="submit" id="submitBtn" disabled>Invia il mio feedback</button>
+  </form>
+
+  <div id="msg"></div>
+  <footer>© Time Cura Capelli – Roma, Viale Regina Margherita</footer>
+</div>
+
+<script>
+  const endpoint = "https://TUO_WORKER_SUBDOMAIN.workers.dev"; // sostituisci con il tuo Worker
+  const form = document.getElementById("survey");
+  const msg = document.getElementById("msg");
+  const submitBtn = document.getElementById("submitBtn");
+  const ratingInputs = document.querySelectorAll('input[type="radio"]');
+
+  function checkAllRated() {
+    const groups = [...new Set([...ratingInputs].map(i => i.name))];
+    const allRated = groups.every(name => document.querySelector(`input[name="${name}"]:checked`));
+    
+    submitBtn.disabled = !allRated;
+
+    if (!allRated) {
+      msg.textContent = "⚠️ Per favore, vota tutte le categorie prima di inviare.";
+      msg.classList.add("visible");
+    } else {
+      msg.textContent = "";
+      msg.classList.remove("visible");
+    }
+  }
+
+  ratingInputs.forEach(input => input.addEventListener('change', checkAllRated));
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    msg.textContent = "⏳ Invio in corso...";
+    msg.classList.add("visible");
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({answers:data})
+      });
+
+      if (res.ok) {
+        msg.textContent = "💖 Grazie! Il tuo feedback è stato inviato con successo.";
+        form.reset();
+        submitBtn.disabled = true;
+      } else {
+        msg.textContent = "❌ Errore durante l’invio. Riprova più tardi.";
+      }
+    } catch (err) {
+      console.error(err);
+      msg.textContent = "⚠️ Connessione non disponibile.";
+    }
+  });
+</script>
+
+</body>
+</html>
