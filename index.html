@@ -251,6 +251,16 @@
       msg.textContent = "⚠️ Connessione non disponibile.";
     }
   });
+
+  window.addEventListener('load', () => {
+  const form = document.getElementById('survey');
+  form.reset();            // Reset valori radio e textarea
+  document.getElementById('submitBtn').disabled = true; // Disabilita pulsante
+  const msg = document.getElementById('msg');
+  msg.textContent = '';    // Rimuovi messaggi
+  msg.classList.remove('visible');
+});
+
 </script>
 
 </body>
