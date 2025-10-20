@@ -146,7 +146,7 @@
   <p class="intro">Compila il questionario in forma anonima: ci aiuti a migliorare ogni giorno nel nostro salone.</p>
 
   <form id="survey" autocomplete="off" novalidate>
-    <label>1. Che voto daresti da 1 a 10 alla tua esperienza da Time Cura Capelli? </label>
+    <label>1) Che voto daresti da 1 a 10 alla tua esperienza da Time Cura Capelli? </label>
     <div class="rating">
       <input type="radio" name="accoglienza" id="acc10" value="10"><label for="acc10">★</label>
       <input type="radio" name="accoglienza" id="acc9" value="9"><label for="acc9">★</label>
@@ -160,45 +160,19 @@
       <input type="radio" name="accoglienza" id="acc1" value="1"><label for="acc1">★</label>
     </div>
 
-    <label>2) Qualità del taglio e del servizio</label>
-    <div class="rating">
-      <input type="radio" name="qualita" id="q5" value="5"><label for="q5">★</label>
-      <input type="radio" name="qualita" id="q4" value="4"><label for="q4">★</label>
-      <input type="radio" name="qualita" id="q3" value="3"><label for="q3">★</label>
-      <input type="radio" name="qualita" id="q2" value="2"><label for="q2">★</label>
-      <input type="radio" name="qualita" id="q1" value="1"><label for="q1">★</label>
+    <div class="question">
+    <label>2) Cosa ti è piaciuto?</label>
+    <textarea name="commenti" placeholder="..."></textarea>
     </div>
 
-    <label>3) Pulizia e comfort del salone</label>
-    <div class="rating">
-      <input type="radio" name="pulizia" id="p5" value="5"><label for="p5">★</label>
-      <input type="radio" name="pulizia" id="p4" value="4"><label for="p4">★</label>
-      <input type="radio" name="pulizia" id="p3" value="3"><label for="p3">★</label>
-      <input type="radio" name="pulizia" id="p2" value="2"><label for="p2">★</label>
-      <input type="radio" name="pulizia" id="p1" value="1"><label for="p1">★</label>
-    </div>
+    <label>3) Cosa non ti è piaciuto?</label>
+    <textarea name="commenti" placeholder="..."></textarea>
 
-    <label>4) Tempistica e puntualità dell’appuntamento</label>
-    <div class="rating">
-      <input type="radio" name="tempistica" id="t5" value="5"><label for="t5">★</label>
-      <input type="radio" name="tempistica" id="t4" value="4"><label for="t4">★</label>
-      <input type="radio" name="tempistica" id="t3" value="3"><label for="t3">★</label>
-      <input type="radio" name="tempistica" id="t2" value="2"><label for="t2">★</label>
-      <input type="radio" name="tempistica" id="t1" value="1"><label for="t1">★</label>
-    </div>
+    <label>4) Cosa ti piacerebbe trovare dal tuo parrucchiere?</label>
+    <textarea name="commenti" placeholder="..."></textarea>
 
-    <label>5) Consiglieresti il nostro salone a un amico?</label>
-    <div class="rating">
-      <input type="radio" name="consiglio" id="c5" value="5"><label for="c5">★</label>
-      <input type="radio" name="consiglio" id="c4" value="4"><label for="c4">★</label>
-      <input type="radio" name="consiglio" id="c3" value="3"><label for="c3">★</label>
-      <input type="radio" name="consiglio" id="c2" value="2"><label for="c2">★</label>
-      <input type="radio" name="consiglio" id="c1" value="1"><label for="c1">★</label>
-    </div>
-
-    <label>2. Cosa ti è piaciuto?</label>
-    <textarea name="commenti" placeholder="Scrivi qui il tuo feedback..."></textarea>
-
+    <label>4) Ci consiglieresti a un amico?</label>
+    <textarea name="commenti" placeholder="..."></textarea>
     
     <button type="submit" id="submitBtn" disabled>Invia il mio feedback</button>
   </form>
