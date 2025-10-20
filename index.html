@@ -194,7 +194,8 @@
 
 <script>
   const endpoint = "https://TUO_WORKER_SUBDOMAIN.workers.dev"; // ← sostituisci con il tuo Worker URL
-
+  const submitButton = document.getElementById("submitButton")
+  const ratingInputs = document.querySelectorAll('input[type="radio"]')
   const form = document.getElementById("survey");
   const msg = document.getElementById("msg");
 
@@ -221,6 +222,18 @@
       console.error(err);
       msg.textContent = "⚠️ Connessione non disponibile.";
     }
+    
+  });
+
+  function checkAllRated() {
+    const groups = [...new Set([...ratingInputs].map( i => i.name))];
+    const allRated _ groups.every(groupName => {
+      return document.querySelector('input[name="${groupName}"]:checked');
+    });
+    submitButton.disabled = !allRated;
+  }
+  ratingInputs.forEach( input => {
+    input.addEventListener('change', checkAllRated);
   });
 </script>
 
