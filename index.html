@@ -174,9 +174,10 @@
     <textarea name="commenti" placeholder=""></textarea>
        </div>
        
-    <div class="question">
+    <div class="rating">
     <label>5) Ci consiglieresti a un amico?</label>
-    <textarea name="commenti" placeholder=""></textarea>
+     <label><input type="radio" name="q1" value="si">Si</label>
+      <label><input type="radio" name="q1" value="no">No</label>
       </div>
     
     <button type="submit" id="submitBtn" disabled>Invia il mio feedback</button>
@@ -192,10 +193,17 @@
   const msg = document.getElementById("msg");
   const submitBtn = document.getElementById("submitBtn");
   const ratingInputs = document.querySelectorAll('input[type="radio"]');
+  const textAreas = document.querySelectorAll('textarea');
 
   function checkAllRated() {
     const groups = [...new Set([...ratingInputs].map(i => i.name))];
     const allRated = groups.every(name => document.querySelector(`input[name="${name}"]:checked`));
+
+    for ( let ta of textareas) {
+      if ( ta.value.trim().length < 5 ){
+        allRated = false
+      }
+    }
     
     submitBtn.disabled = !allRated;
 
