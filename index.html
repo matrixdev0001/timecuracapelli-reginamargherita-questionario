@@ -200,7 +200,7 @@
   function checkAllRated() {
     const groups = [...new Set([...ratingInputs].map(i => i.name))];
     const allRated = groups.every(name => document.querySelector(`input[name="${name}"]:checked`));
-
+    let allFilled = true;
     for ( let ta of textAreas) {
       if ( ta.value.trim().length < 5 ){
         allFilled = false;
