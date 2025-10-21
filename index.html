@@ -191,6 +191,7 @@
 
         if (res.ok) {
           // salva la data in localStorage
+          console.log("✅ Invio riuscito, salvo data.");
           const saved = safeSetItem('time_feedback_date', new Date().toISOString());
           if (!saved) console.warn('Impossibile salvare localStorage; l\'utente potrebbe essere in modalità che lo blocca.');
 
