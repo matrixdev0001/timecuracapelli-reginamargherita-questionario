@@ -161,6 +161,7 @@
     e.preventDefault();
     msg.textContent="⏳ Invio in corso...";
     msg.classList.add('visible');
+    console.log("🟡 Form inviato, preparo dati");
     const data=Object.fromEntries(new FormData(form).entries());
 
     try{
@@ -169,9 +170,10 @@
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({answers:data})
       });
-
+      console.log("🟡 Invio 2");
       if(res.ok){
         safeSetItem('time_feedback_date',new Date().toISOString());
+        console.log("🟡 Invio 3");
         card.innerHTML=`
           <img src="logo_time.svg" alt="Logo Time Cura Capelli" class="logo">
           <h1>Grazie per il tuo feedback 💖</h1>
