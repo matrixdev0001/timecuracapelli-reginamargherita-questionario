@@ -194,25 +194,40 @@
   const endpoint = "https://questionario-timecuracapellimargherita.spring-base-cc9f.workers.dev"; // sostituisci con il tuo Worker
   const form = document.getElementById("survey");
   const msg = document.getElementById("msg");
+  const card = document.querySelector('.card'); 
   const submitBtn = document.getElementById("submitBtn");
   const ratingInputs = document.querySelectorAll('input[type="radio"]');
   const textAreas = document.querySelectorAll('textarea');
   
-  function alreadySubmittedRecently() {
+ function alreadySubmittedRecently() {
     const lastSubmission = localStorage.getItem('time_feedback_date');
     if (!lastSubmission) return false;
     const lastDate = new Date(lastSubmission);
+    if (isNaN(lastDate.getTime())) return false;
     const diffDays = (Date.now() - lastDate.getTime()) / (1000 * 60 * 60 * 24);
     return diffDays < 7;
   }
-   if (alreadySubmittedRecently()) {
+
+  // --- Ritorna i giorni rimanenti alla nuova compilazione ---
+  function daysUntilNextAllowed() {
+    const lastSubmission = localStorage.getItem('time_feedback_date');
+    if (!lastSubmission) return 0;
+    const lastDate = new Date(lastSubmission);
+    const msRemaining = (lastDate.getTime() + 7 * 24 * 60 * 60 * 1000) - Date.now();
+    return Math.ceil(msRemaining / (1000 * 60 * 60 * 24));
+  }
+
+  // --- Mostra la schermata di ringraziamento quando già compilato ---
+  if (alreadySubmittedRecently()) {
+    const daysLeft = daysUntilNextAllowed();
     card.innerHTML = `
       <img src="logo_time.svg" alt="Logo Time Cura Capelli" class="logo">
       <h1>Grazie per il tuo feedback 💖</h1>
       <p class="intro">Hai già compilato il questionario di soddisfazione nell’ultima settimana.<br>
       Ti ringraziamo davvero per il tuo contributo!</p>
       <p style="text-align:center; color:#735354; font-weight:500; margin-top:1.5rem;">
-        Speriamo di rivederti presto nel nostro salone ✂️<br><br>
+        ${daysLeft > 0 ? 'Potrai compilare nuovamente tra ' + daysLeft + ' giorno' + (daysLeft>1?'i':'') + '.' : ''}
+        <br><br>Speriamo di rivederti presto nel nostro salone ✂️<br><br>
         <strong>Time Cura Capelli – Regina Margherita</strong>
       </p>
     `;
