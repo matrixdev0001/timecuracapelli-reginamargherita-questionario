@@ -121,13 +121,18 @@
 
   if(alreadySubmittedRecently()){
     const daysLeft = daysUntilNextAllowed();
+    const dayWord = daysLeft === 1 ? 'giorno' : 'giorni';
+    const waitText = daysLeft > 0
+    ? `Potrai compilare nuovamente tra ${daysLeft} ${dayWord}.<br><br>`
+    : '';
+
     card.innerHTML = `
       <img src="logo_time.svg" alt="Logo Time Cura Capelli" class="logo">
       <h1>Grazie per il tuo feedback 💖</h1>
       <p class="intro">Hai già compilato il questionario di soddisfazione nell’ultima settimana.<br>
       Ti ringraziamo davvero per il tuo contributo!</p>
       <p style="text-align:center;color:#735354;font-weight:500;margin-top:1.5rem;">
-        ${daysLeft>0 ? `Potrai compilare nuovamente tra ${daysLeft} giorno${daysLeft !== 1 ? 'i' : ''}.<br><br>` : ''}
+        ${waitText}
         Speriamo di rivederti presto nel nostro salone ✂️<br><br>
         <strong>Time Cura Capelli – Regina Margherita</strong>
       </p>
