@@ -127,7 +127,7 @@
       <p class="intro">Hai già compilato il questionario di soddisfazione nell’ultima settimana.<br>
       Ti ringraziamo davvero per il tuo contributo!</p>
       <p style="text-align:center;color:#735354;font-weight:500;margin-top:1.5rem;">
-        ${daysLeft>0?`Potrai compilare nuovamente tra ${daysLeft} giorno${daysLeft>1?'i':''}.<br><br>`:''}
+        ${daysLeft>0 ? `Potrai compilare nuovamente tra ${daysLeft} giorno${daysLeft !== 1 ? 'i' : ''}.<br><br>` : ''}
         Speriamo di rivederti presto nel nostro salone ✂️<br><br>
         <strong>Time Cura Capelli – Regina Margherita</strong>
       </p>
@@ -161,7 +161,6 @@
     e.preventDefault();
     msg.textContent="⏳ Invio in corso...";
     msg.classList.add('visible');
-    console.log("🟡 Form inviato, preparo dati");
     const data=Object.fromEntries(new FormData(form).entries());
 
     try{
@@ -170,10 +169,8 @@
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({answers:data})
       });
-      console.log("🟡 Invio 2");
       if(res.ok){
         safeSetItem('time_feedback_date',new Date().toISOString());
-        console.log("🟡 Invio 3");
         card.innerHTML=`
           <img src="logo_time.svg" alt="Logo Time Cura Capelli" class="logo">
           <h1>Grazie per il tuo feedback 💖</h1>
